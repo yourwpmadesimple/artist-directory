@@ -1,23 +1,27 @@
+    
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { APP_BASE_HREF } from '@angular/common';
-
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { ArtistItemsComponent } from './artist-items/artist-items.component';
+import { SearchArtistsPipe } from './search-artists.pipe';
+import { ArtistDetailsComponent } from './artist-details/artist-details.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ArtistItemsComponent,
+    SearchArtistsPipe,
+    ArtistDetailsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [
-    {
-      provide: APP_BASE_HREF,
-      useValue: '/' + (window.location.pathname.split('/')[1] || '')
-  }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
